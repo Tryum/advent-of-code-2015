@@ -1,4 +1,4 @@
-use std::{collections::HashSet, ops::Add};
+use std::collections::HashSet;
 
 advent_of_code::solution!(3);
 
@@ -45,12 +45,9 @@ pub fn part_two(input: &str) -> Option<u64> {
     places.insert((santa_x, santa_y));
 
     let mut input_iter = input.chars();
-    loop {
-        if let Some(c) = input_iter.next() {
-            update(c, &mut santa_x, &mut santa_y);
-        } else {
-            break;
-        }
+    while let Some(c) = input_iter.next() {
+        update(c, &mut santa_x, &mut santa_y);
+
         if let Some(c) = input_iter.next() {
             update(c, &mut bot_x, &mut bot_y);
         } else {
